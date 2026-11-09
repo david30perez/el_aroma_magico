@@ -1,0 +1,28 @@
+<section class="catalog" aria-label="Catálogo de cafés">
+  <div class="coffee-banner" role="img" aria-label="Granos de café sobre una mesa oscura"></div>
+
+  <div class="catalog-content">
+
+
+    <table  class="coffee-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Región</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coffee of coffees">
+          <th scope="row">{{ coffee.id }}</th>
+          <td>{{ coffee.nombre }}</td>
+          <td>{{ coffee.tipo }}</td>
+          <td>{{ coffee.region }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</section>

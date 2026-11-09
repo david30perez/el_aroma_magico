@@ -1,15 +1,18 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { of } from 'rxjs';
 import { App } from './app';
+import { AppModule } from './app-module';
+import { CoffeeService } from './coffee/coffee.service';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      declarations: [
-        App
+      imports: [AppModule],
+      providers: [
+        {
+          provide: CoffeeService,
+          useValue: { getCoffees: () => of([]) },
+        },
       ],
     })
       .compileComponents();
@@ -25,6 +28,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, el_aroma_magico');
+    expect(compiled.querySelector('h1')?.textContent).toContain('El aroma mágico');
   });
 });
