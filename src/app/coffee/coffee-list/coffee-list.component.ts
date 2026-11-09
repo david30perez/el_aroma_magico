@@ -29,5 +29,13 @@ export class CoffeeListComponent implements OnInit {
       this.changeDetector.markForCheck();
     });
   }
-  
+
+  get originCoffeeCount(): number {
+    return this.coffees.filter((coffee) => coffee.tipo === 'Café de Origen').length;
+  }
+
+  get blendCoffeeCount(): number {
+    return this.coffees.filter((coffee) => coffee.tipo === 'Blend').length;
+  }
+
 }
